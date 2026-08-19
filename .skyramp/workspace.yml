@@ -1,0 +1,23 @@
+# Skyramp Workspace Configuration for Gotify eval (Docker handled by the harness).
+workspace:
+  repoName: gotify/server
+  repoUrl: https://github.com/gotify/server.git
+metadata:
+  schemaVersion: v1
+  mcpVersion: 1.0.0
+  executorVersion: v1.0.0
+  createdAt: "2026-06-26T00:00:00.000Z"
+  updatedAt: "2026-06-26T00:00:00.000Z"
+services:
+  - serviceName: gotify-server-backend
+    language: python
+    framework: pytest
+    testDirectory: tests/skyramp
+    api:
+      baseUrl: http://localhost:8090
+      schemaPath: docs/spec.json
+      authHeader: X-Gotify-Key
+      authType: token
+      authScheme: ""
+    runtimeDetails:
+      runtime: local
