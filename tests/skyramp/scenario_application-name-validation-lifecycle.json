@@ -1,0 +1,86 @@
+[
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "localhost",
+    "RequestBody": "{\"name\": \"test-app-lifecycle\", \"description\": \"test app for name validation\"}",
+    "ResponseBody": "{\"id\": 1, \"name\": \"test-app-lifecycle\", \"description\": \"test app for name validation\"}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ],
+      "X-Gotify-Key": [
+        "SKYRAMP_PLACEHOLDER_TOKEN"
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "POST",
+    "Path": "/application",
+    "QueryParams": {},
+    "StatusCode": 200,
+    "Port": 8090,
+    "Timestamp": "2026-08-21T20:03:57.948Z",
+    "Scheme": "http",
+    "scenarioName": "application-name-validation-lifecycle",
+    "UniqueFields": [
+      "name"
+    ]
+  },
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "localhost",
+    "RequestBody": "{\"name\": \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\", \"description\": \"test\"}",
+    "ResponseBody": "{}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ],
+      "X-Gotify-Key": [
+        "SKYRAMP_PLACEHOLDER_TOKEN"
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "PUT",
+    "Path": "/application/1",
+    "QueryParams": {},
+    "StatusCode": 400,
+    "Port": 8090,
+    "Timestamp": "2026-08-21T20:03:58.948Z",
+    "Scheme": "http",
+    "scenarioName": "application-name-validation-lifecycle"
+  },
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "localhost",
+    "RequestBody": "",
+    "ResponseBody": "{}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ],
+      "X-Gotify-Key": [
+        "SKYRAMP_PLACEHOLDER_TOKEN"
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "DELETE",
+    "Path": "/application/1",
+    "QueryParams": {},
+    "StatusCode": 200,
+    "Port": 8090,
+    "Timestamp": "2026-08-21T20:03:59.948Z",
+    "Scheme": "http",
+    "scenarioName": "application-name-validation-lifecycle"
+  }
+]
