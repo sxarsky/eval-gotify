@@ -1,0 +1,56 @@
+[
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "localhost",
+    "RequestBody": "{\"username\": \"admin\", \"password\": \"admin\"}",
+    "ResponseBody": "{\"id\": 1, \"token\": \"abc123\"}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ],
+      "X-Gotify-Key": [
+        "SKYRAMP_PLACEHOLDER_TOKEN"
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "POST",
+    "Path": "/auth/local/login",
+    "QueryParams": {},
+    "StatusCode": 201,
+    "Port": 8090,
+    "Timestamp": "2026-08-21T19:58:38.693Z",
+    "Scheme": "http",
+    "scenarioName": "version-auth-integration"
+  },
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "localhost",
+    "RequestBody": "",
+    "ResponseBody": "{\"version\": \"1.0.0\", \"commit\": \"abc123\"}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ],
+      "X-Gotify-Key": [
+        "SKYRAMP_PLACEHOLDER_TOKEN"
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "GET",
+    "Path": "/version",
+    "QueryParams": {},
+    "StatusCode": 200,
+    "Port": 8090,
+    "Timestamp": "2026-08-21T19:58:39.693Z",
+    "Scheme": "http",
+    "scenarioName": "version-auth-integration"
+  }
+]
