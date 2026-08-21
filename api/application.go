@@ -90,14 +90,14 @@ type ApplicationParams struct {
 //	    schema:
 //	        $ref: "#/definitions/Error"
 func (a *ApplicationAPI) CreateApplication(ctx *gin.Context) {
-	applicationParams := ApplicationParams{}
-	if err := ctx.Bind(&applicationParams); err == nil {
+	params := ApplicationParams{}
+	if err := ctx.Bind(&params); err == nil {
 		tokenPublic, tokenPrivate := generateApplicationToken()
 		app := model.Application{
-			Name:            applicationParams.Name,
-			Description:     applicationParams.Description,
-			DefaultPriority: applicationParams.DefaultPriority,
-			SortKey:         applicationParams.SortKey,
+			Name:            params.Name,
+			Description:     params.Description,
+			DefaultPriority: params.DefaultPriority,
+			SortKey:         params.SortKey,
 			Token:           tokenPublic,
 			UserID:          auth.GetUserID(ctx),
 			Internal:        false,
