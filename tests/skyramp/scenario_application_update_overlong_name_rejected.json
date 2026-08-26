@@ -1,0 +1,83 @@
+[
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "localhost",
+    "RequestBody": "{\"name\": \"update-guard-app\", \"description\": \"baseline name before the rejected update\"}",
+    "ResponseBody": "{\"id\": 1, \"name\": \"update-guard-app\", \"description\": \"baseline name before the rejected update\", \"internal\": false, \"defaultPriority\": 0}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ],
+      "X-Gotify-Key": [
+        "SKYRAMP_PLACEHOLDER_TOKEN"
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "POST",
+    "Path": "/application",
+    "QueryParams": {},
+    "StatusCode": 200,
+    "Port": 8090,
+    "Timestamp": "2026-08-26T19:12:08.986Z",
+    "Scheme": "http",
+    "scenarioName": "application_update_overlong_name_rejected"
+  },
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "localhost",
+    "RequestBody": "{\"name\": \"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\"}",
+    "ResponseBody": "{\"error\": \"Bad Request\", \"errorCode\": 400, \"errorDescription\": \"Field 'name' must be less or equal to 100\"}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ],
+      "X-Gotify-Key": [
+        "SKYRAMP_PLACEHOLDER_TOKEN"
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "PUT",
+    "Path": "/application/1",
+    "QueryParams": {},
+    "StatusCode": 400,
+    "Port": 8090,
+    "Timestamp": "2026-08-26T19:12:09.986Z",
+    "Scheme": "http",
+    "scenarioName": "application_update_overlong_name_rejected"
+  },
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "localhost",
+    "RequestBody": "",
+    "ResponseBody": "[{\"id\": 1, \"name\": \"update-guard-app\", \"description\": \"baseline name before the rejected update\"}]",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ],
+      "X-Gotify-Key": [
+        "SKYRAMP_PLACEHOLDER_TOKEN"
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "GET",
+    "Path": "/application",
+    "QueryParams": {},
+    "StatusCode": 200,
+    "Port": 8090,
+    "Timestamp": "2026-08-26T19:12:10.986Z",
+    "Scheme": "http",
+    "scenarioName": "application_update_overlong_name_rejected"
+  }
+]
