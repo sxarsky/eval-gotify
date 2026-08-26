@@ -103,6 +103,33 @@ func (s *ApplicationSuite) Test_CreateApplication_expectBadRequestOnEmptyName() 
 	}
 }
 
+func (s *ApplicationSuite) Test_CreateApplication_expectBadRequestOnNameLongerThanMaxLength() {
+	s.db.User(5)
+
+	test.WithUser(s.ctx, 5)
+	s.withFormData("name=" + strings.Repeat("a", 101))
+	s.a.CreateApplication(s.ctx)
+
+	assert.Equal(s.T(), 400, s.recorder.Code)
+	if app, err := s.db.GetApplicationsByUser(5); assert.NoError(s.T(), err) {
+		assert.Empty(s.T(), app)
+	}
+}
+
+func (s *ApplicationSuite) Test_CreateApplication_acceptsNameAtMaxLength() {
+	s.db.User(5)
+
+	name := strings.Repeat("a", 100)
+	test.WithUser(s.ctx, 5)
+	s.withFormData("name=" + name)
+	s.a.CreateApplication(s.ctx)
+
+	assert.Equal(s.T(), 200, s.recorder.Code)
+	if app, err := s.db.GetApplicationByID(1); assert.NoError(s.T(), err) {
+		assert.Equal(s.T(), name, app.Name)
+	}
+}
+
 func (s *ApplicationSuite) Test_CreateApplication_ignoresReadOnlyPropertiesInParams() {
 	s.db.User(5)
 
@@ -701,6 +728,20 @@ func (s *ApplicationSuite) Test_UpdateApplication_WithoutPermission_expectNotFou
 	s.a.UpdateApplication(s.ctx)
 
 	assert.Equal(s.T(), 404, s.recorder.Code)
+}
+
+func (s *ApplicationSuite) Test_UpdateApplication_expectBadRequestOnNameLongerThanMaxLength() {
+	s.db.User(5).NewAppWithTokenAndName(2, "app-2", "original_name")
+
+	test.WithUser(s.ctx, 5)
+	s.withFormData("name=" + strings.Repeat("b", 101))
+	s.ctx.Params = gin.Params{{Key: "id", Value: "2"}}
+	s.a.UpdateApplication(s.ctx)
+
+	assert.Equal(s.T(), 400, s.recorder.Code)
+	if app, err := s.db.GetApplicationByID(2); assert.NoError(s.T(), err) {
+		assert.Equal(s.T(), "original_name", app.Name)
+	}
 }
 
 func (s *ApplicationSuite) Test_UpdateApplication_duplicateSortKey() {
