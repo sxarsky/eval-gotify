@@ -40,8 +40,9 @@ type ApplicationParams struct {
 	// The application name. This is how the application should be displayed to the user.
 	//
 	// required: true
+	// maxLength: 100
 	// example: Backup Server
-	Name string `form:"name" query:"name" json:"name" binding:"required"`
+	Name string `form:"name" query:"name" json:"name" binding:"required,max=100"`
 	// The description of the application.
 	//
 	// example: Backup server for the interwebs
