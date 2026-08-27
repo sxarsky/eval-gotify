@@ -703,6 +703,32 @@ func (s *ApplicationSuite) Test_UpdateApplication_WithoutPermission_expectNotFou
 	assert.Equal(s.T(), 404, s.recorder.Code)
 }
 
+func (s *ApplicationSuite) Test_CreateApplication_expectBadRequestOnNameTooLong() {
+	s.db.User(5)
+
+	test.WithUser(s.ctx, 5)
+	longName := strings.Repeat("a", 101)
+	s.withFormData("name=" + longName + "&description=description_text")
+	s.a.CreateApplication(s.ctx)
+
+	assert.Equal(s.T(), 400, s.recorder.Code)
+	if apps, err := s.db.GetApplicationsByUser(5); assert.NoError(s.T(), err) {
+		assert.Empty(s.T(), apps)
+	}
+}
+
+func (s *ApplicationSuite) Test_UpdateApplication_expectBadRequestOnNameTooLong() {
+	s.db.User(5).NewAppWithToken(2, "app-2")
+
+	test.WithUser(s.ctx, 5)
+	longName := strings.Repeat("a", 101)
+	s.withFormData("name=" + longName)
+	s.ctx.Params = gin.Params{{Key: "id", Value: "2"}}
+	s.a.UpdateApplication(s.ctx)
+
+	assert.Equal(s.T(), 400, s.recorder.Code)
+}
+
 func (s *ApplicationSuite) Test_UpdateApplication_duplicateSortKey() {
 	user := s.db.User(5)
 	user.App(1) // sortKey=a0
