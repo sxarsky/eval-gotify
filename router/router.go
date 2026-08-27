@@ -173,6 +173,19 @@ func Create(db *database.GormDatabase, vInfo *model.VersionInfo, conf *config.Co
 		ctx.JSON(200, vInfo)
 	})
 
+	// swagger:operation GET /ping info getPing
+	//
+	// Liveness ping.
+	//
+	// ---
+	// produces: [application/json]
+	// responses:
+	//   200:
+	//     description: Ok
+	g.GET("ping", func(ctx *gin.Context) {
+		ctx.JSON(200, gin.H{"pong": true})
+	})
+
 	// swagger:operation GET /gotifyinfo info getInfo
 	//
 	// Get gotify information.
