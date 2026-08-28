@@ -1,0 +1,56 @@
+[
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "localhost",
+    "RequestBody": "{\"name\": \"partial-update-probe\", \"description\": \"original description\", \"defaultPriority\": 7}",
+    "ResponseBody": "{\"id\": 101, \"name\": \"partial-update-probe\", \"description\": \"original description\", \"defaultPriority\": 7, \"sortKey\": \"a7\", \"internal\": false, \"image\": \"static/defaultapp.png\", \"token\": \"gtfya.samplecreatetoken\"}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ],
+      "X-Gotify-Key": [
+        "SKYRAMP_PLACEHOLDER_TOKEN"
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "POST",
+    "Path": "/application",
+    "QueryParams": {},
+    "StatusCode": 200,
+    "Port": 8090,
+    "Timestamp": "2026-08-28T22:48:25.143Z",
+    "Scheme": "http",
+    "scenarioName": "application_put_partial_update_clears_description"
+  },
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "localhost",
+    "RequestBody": "{\"name\": \"partial-update-probe-renamed\"}",
+    "ResponseBody": "{\"id\": 101, \"name\": \"partial-update-probe-renamed\", \"description\": \"original description\", \"defaultPriority\": 7, \"sortKey\": \"a7\", \"internal\": false, \"image\": \"static/defaultapp.png\"}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ],
+      "X-Gotify-Key": [
+        "SKYRAMP_PLACEHOLDER_TOKEN"
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "PUT",
+    "Path": "/application/101",
+    "QueryParams": {},
+    "StatusCode": 200,
+    "Port": 8090,
+    "Timestamp": "2026-08-28T22:48:26.143Z",
+    "Scheme": "http",
+    "scenarioName": "application_put_partial_update_clears_description"
+  }
+]

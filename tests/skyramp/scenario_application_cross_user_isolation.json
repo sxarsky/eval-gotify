@@ -1,0 +1,86 @@
+[
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "localhost",
+    "RequestBody": "{\"name\": \"isolation_user_b\", \"pass\": \"secretpass123\", \"admin\": false}",
+    "ResponseBody": "{\"id\": 202, \"name\": \"isolation_user_b\", \"admin\": false}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ],
+      "X-Gotify-Key": [
+        "SKYRAMP_PLACEHOLDER_TOKEN"
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "POST",
+    "Path": "/user",
+    "QueryParams": {},
+    "StatusCode": 200,
+    "Port": 8090,
+    "Timestamp": "2026-08-28T22:48:32.482Z",
+    "Scheme": "http",
+    "scenarioName": "application_cross_user_isolation",
+    "UniqueFields": [
+      "name"
+    ]
+  },
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "localhost",
+    "RequestBody": "{\"name\": \"isolation-probe\"}",
+    "ResponseBody": "{\"id\": 203, \"name\": \"isolation-probe\", \"description\": \"\", \"internal\": false, \"image\": \"static/defaultapp.png\", \"token\": \"gtfya.sampleisolationtoken\"}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ],
+      "X-Gotify-Key": [
+        "SKYRAMP_PLACEHOLDER_TOKEN"
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "POST",
+    "Path": "/application",
+    "QueryParams": {},
+    "StatusCode": 200,
+    "Port": 8090,
+    "Timestamp": "2026-08-28T22:48:33.482Z",
+    "Scheme": "http",
+    "scenarioName": "application_cross_user_isolation"
+  },
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "localhost",
+    "RequestBody": "{\"name\": \"hijacked\"}",
+    "ResponseBody": "{\"error\": \"Not Found\", \"errorCode\": 404, \"errorDescription\": \"app with id 999999 doesn't exists\"}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ],
+      "X-Gotify-Key": [
+        "SKYRAMP_PLACEHOLDER_TOKEN"
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "Method": "PUT",
+    "Path": "/application/999999",
+    "QueryParams": {},
+    "StatusCode": 404,
+    "Port": 8090,
+    "Timestamp": "2026-08-28T22:48:34.482Z",
+    "Scheme": "http",
+    "scenarioName": "application_cross_user_isolation"
+  }
+]
