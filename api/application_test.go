@@ -103,6 +103,19 @@ func (s *ApplicationSuite) Test_CreateApplication_expectBadRequestOnEmptyName() 
 	}
 }
 
+func (s *ApplicationSuite) Test_CreateApplication_expectBadRequestOnTooLongName() {
+	s.db.User(5)
+
+	test.WithUser(s.ctx, 5)
+	s.withFormData("name=" + strings.Repeat("a", 101) + "&description=description_text")
+	s.a.CreateApplication(s.ctx)
+
+	assert.Equal(s.T(), 400, s.recorder.Code)
+	if app, err := s.db.GetApplicationsByUser(5); assert.NoError(s.T(), err) {
+		assert.Empty(s.T(), app)
+	}
+}
+
 func (s *ApplicationSuite) Test_CreateApplication_ignoresReadOnlyPropertiesInParams() {
 	s.db.User(5)
 
