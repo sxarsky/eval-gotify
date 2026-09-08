@@ -1,0 +1,56 @@
+[
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "localhost",
+    "RequestBody": "",
+    "ResponseBody": "{\"version\":\"unknown\",\"commit\":\"unknown\"}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ],
+      "X-Gotify-Key": [
+        "SKYRAMP_PLACEHOLDER_TOKEN"
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "application/json; charset=utf-8"
+      ]
+    },
+    "Method": "GET",
+    "Path": "/version",
+    "QueryParams": {},
+    "StatusCode": 200,
+    "Port": 8090,
+    "Timestamp": "2026-09-08T21:00:08.304Z",
+    "Scheme": "http",
+    "scenarioName": "version-spec-parity-no-builddate"
+  },
+  {
+    "Source": "192.168.65.1:39998",
+    "Destination": "localhost",
+    "RequestBody": "",
+    "ResponseBody": "{\"swagger\":\"2.0\",\"definitions\":{\"VersionInfo\":{\"type\":\"object\",\"required\":[\"version\",\"commit\"],\"properties\":{\"commit\":{\"type\":\"string\"},\"version\":{\"type\":\"string\"}}}}}",
+    "RequestHeaders": {
+      "Content-Type": [
+        "application/json"
+      ],
+      "X-Gotify-Key": [
+        "SKYRAMP_PLACEHOLDER_TOKEN"
+      ]
+    },
+    "ResponseHeaders": {
+      "Content-Type": [
+        "text/plain; charset=utf-8"
+      ]
+    },
+    "Method": "GET",
+    "Path": "/swagger",
+    "QueryParams": {},
+    "StatusCode": 200,
+    "Port": 8090,
+    "Timestamp": "2026-09-08T21:00:09.304Z",
+    "Scheme": "http",
+    "scenarioName": "version-spec-parity-no-builddate"
+  }
+]
