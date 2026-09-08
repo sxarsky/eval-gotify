@@ -37,7 +37,7 @@ func main() {
 }
 
 func run(args []string, stdout, stderr io.Writer) int {
-	vInfo := &model.VersionInfo{Version: Version, Commit: Commit, BuildDate: BuildDate}
+	vInfo := &model.VersionInfo{Version: Version, Commit: Commit}
 	fs := flag.NewFlagSet("gotify", flag.ContinueOnError)
 	fs.SetOutput(stderr)
 	fs.Usage = func() { printUsage(stderr) }
@@ -55,7 +55,7 @@ func run(args []string, stdout, stderr io.Writer) int {
 	case "version":
 		fmt.Fprintln(stdout, "Version:", vInfo.Version)
 		fmt.Fprintln(stdout, "Commit:", vInfo.Commit)
-		fmt.Fprintln(stdout, "Build Date:", vInfo.BuildDate)
+		fmt.Fprintln(stdout, "Build Date:", BuildDate)
 		fmt.Fprintln(stdout, "Go Build Info:")
 		b, ok := debug.ReadBuildInfo()
 		if ok {

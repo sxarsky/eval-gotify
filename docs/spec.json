@@ -3016,7 +3016,7 @@
           "example": "2018-02-27T19:36:10.5045044+01:00"
         },
         "extras": {
-          "description": "The extra data sent along the message.\n\nThe extra fields are stored in a key-value scheme. Only accepted in CreateMessage requests with application/json content-type.\n\nThe keys should be in the following format: \u0026lt;top-namespace\u0026gt;::[\u0026lt;sub-namespace\u0026gt;::]\u0026lt;action\u0026gt;\n\nThese namespaces are reserved and might be used in the official clients: gotify android ios web server client. Do not use them for other purposes.",
+          "description": "The extra data sent along the message.\n\nThe extra fields are stored in a key-value scheme. Only accepted in CreateMessage requests with application/json content-type.\n\nThe keys should be in the following format: &lt;top-namespace&gt;::[&lt;sub-namespace&gt;::]&lt;action&gt;\n\nThese namespaces are reserved and might be used in the official clients: gotify android ios web server client. Do not use them for other purposes.",
           "type": "object",
           "additionalProperties": {},
           "x-go-name": "Extras",
@@ -3104,7 +3104,7 @@
           "description": "The URL to open in the browser to authenticate with the OIDC provider.",
           "type": "string",
           "x-go-name": "AuthorizeURL",
-          "example": "https://auth.example.com/authorize?client_id=gotify\u0026..."
+          "example": "https://auth.example.com/authorize?client_id=gotify&..."
         },
         "state": {
           "description": "The state parameter to send back with the token exchange request.",
@@ -3215,7 +3215,7 @@
           "type": "string",
           "x-go-name": "Next",
           "readOnly": true,
-          "example": "http://example.com/message?limit=50\u0026since=123456"
+          "example": "http://example.com/message?limit=50&since=123456"
         },
         "since": {
           "description": "The ID of the last message returned in the current request. Use this as alternative to the next link.",
@@ -3469,16 +3469,9 @@
       "type": "object",
       "required": [
         "version",
-        "commit",
-        "buildDate"
+        "commit"
       ],
       "properties": {
-        "buildDate": {
-          "description": "The date on which this binary was built.",
-          "type": "string",
-          "x-go-name": "BuildDate",
-          "example": "2018-02-27T19:36:10.5045044+01:00"
-        },
         "commit": {
           "description": "The git commit hash on which this binary was built.",
           "type": "string",
